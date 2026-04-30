@@ -37,9 +37,8 @@ export default function MarcarConsultaPage() {
     setIsSubmitting(true);
 
     try {
-      // Configuração Formspree
-      // IMPORTANTE: Substitua YOUR_FORM_ID pelo ID do seu formulário Formspree
-      const formspreeEndpoint = "https://formspree.io/f/YOUR_FORM_ID";
+      // Enviar email para 14216@ipam.pt via Formspree
+      const formspreeEndpoint = "https://formspree.io/f/xbdqggoa";
 
       // Preparar os dados para envio
       const payload = {
@@ -50,8 +49,9 @@ export default function MarcarConsultaPage() {
         horario: formData.time === "manha" ? "Manhã (9h - 12h)" : "Tarde (14h - 18h)",
         tipo_consulta: getConsultationTypeLabel(formData.consultationType),
         mensagem: formData.message || "Sem observações adicionais",
-        _subject: "Novo agendamento de consulta",
+        _subject: "Nova marcação online - Clínica Predileta",
         _replyto: formData.email,
+        _cc: "14216@ipam.pt"
       };
 
       // Enviar dados para o Formspree

@@ -50,8 +50,8 @@ export default function HomePage() {
     setIsSubmitting(true);
 
     try {
-      // IMPORTANTE: Use o mesmo Form ID da página de marcação
-      const formspreeEndpoint = "https://formspree.io/f/YOUR_FORM_ID";
+      // Enviar email para 14216@ipam.pt via Formspree
+      const formspreeEndpoint = "https://formspree.io/f/xbdqggoa";
 
       const payload = {
         nome: `${formData.firstName} ${formData.lastName}`,
@@ -60,8 +60,9 @@ export default function HomePage() {
         servico: formData.service || "Não especificado",
         data: formData.date || "Não especificada",
         mensagem: formData.message || "Sem mensagem adicional",
-        _subject: "Novo agendamento de consulta",
+        _subject: "Novo agendamento de consulta - Clínica Predileta",
         _replyto: formData.email,
+        _cc: "14216@ipam.pt"
       };
 
       const response = await fetch(formspreeEndpoint, {
@@ -137,11 +138,6 @@ export default function HomePage() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Search className="w-4 h-4 xl:w-5 xl:h-5 text-gray-600 group-hover:text-[#2934b7] transition-colors" />
-                  <img
-                    src={logoSearchIcon}
-                    alt="Predileta"
-                    className="absolute -top-1 -right-1 w-3 h-3 rounded-full object-cover border border-white shadow-sm"
-                  />
                 </motion.button>
 
                 <Link to="/marcar-consulta" className="inline-flex items-center gap-2 px-4 py-2 xl:px-6 xl:py-3 bg-[#2934b7] text-white text-sm xl:text-base rounded-full hover:bg-[#1E2894] hover:shadow-xl hover:-translate-y-0.5 transition-all font-light text-[#ffffff]">
@@ -220,7 +216,7 @@ export default function HomePage() {
               >
                 <Phone className="w-6 h-6 md:w-8 md:h-8 text-[#2934b7] mx-auto mb-2 md:mb-3" />
                 <div className="text-xs md:text-sm text-gray-500 mb-1 font-light">Ligue-nos</div>
-                <div className="text-base md:text-lg font-light text-gray-800">910 658 115</div>
+                <div className="text-base md:text-lg font-light text-gray-800">+351 910 658 115</div>
               </motion.div>
 
               <motion.div
@@ -231,7 +227,7 @@ export default function HomePage() {
               >
                 <Clock className="w-6 h-6 md:w-8 md:h-8 text-[#2934b7] mx-auto mb-2 md:mb-3 bg-[#2930b700]" />
                 <div className="text-xs md:text-sm text-gray-500 mb-1 font-light">Horário</div>
-                <div className="text-sm md:text-base font-light text-gray-800">Seg-Sex: 9h-12:30 | 14h-19h</div>
+                <div className="text-sm md:text-base font-light text-gray-800">Seg-Sex: 9h-12h30 | 14h-19h</div>
               </motion.div>
 
               <motion.div
@@ -256,7 +252,7 @@ export default function HomePage() {
       <section id="especialidades" className="section-padding bg-white">
         <div className="max-w-responsive">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
-            <h2 className="text-responsive-2xl font-light mb-3 md:mb-4 text-[#2934b7]">Especialidades da Nossa Clínica Dentista</h2>
+            <h2 className="text-responsive-2xl font-light mb-3 md:mb-4 text-[#2934b7]">Especialidades da <b>sua</b> Clínica Dentária</h2>
             <p className="text-responsive-base text-gray-500 max-w-2xl mx-auto font-light px-4">
               Médicos dentistas qualificados em Famalicão. Oferecemos limpeza dentária, ortodontia, implantologia e tratamentos de saúde oral completos.
             </p>
@@ -348,7 +344,7 @@ export default function HomePage() {
               </div>
 
               <h2 className="text-responsive-2xl font-light mb-4 md:mb-6 text-[#2934b7]">
-                Dentista em Famalicão | Uma Clínica Familiar ao Serviço de Várias Gerações
+                Dentista em Famalicão | Uma Clínica familiar ao serviço de várias gerações
               </h2>
 
               <p className="text-responsive-base text-gray-500 mb-4 md:mb-6 leading-relaxed font-light">
@@ -446,9 +442,6 @@ export default function HomePage() {
                         Depois
                       </span>
                     </div>
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
-                      <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-[#2934b7]" />
-                    </div>
                   </div>
                   <div className="p-4 md:p-6">
                     <span className="inline-block px-2.5 py-0.5 md:px-3 md:py-1 bg-[#F8F9FA] text-[#2934b7] text-[10px] md:text-xs rounded-full mb-2 md:mb-3 font-light">
@@ -468,7 +461,7 @@ export default function HomePage() {
       <section className="section-padding bg-gradient-to-br from-[#F8F9FA] to-[#E9ECEF] overflow-hidden">
         <div className="max-w-responsive">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
-            <h2 className="text-responsive-2xl font-light mb-3 md:mb-4 text-[#2934b7]">O Que Dizem os Nossos Pacientes</h2>
+            <h2 className="text-responsive-2xl font-light mb-3 md:mb-4 text-[#2934b7]">O que dizem os nossos pacientes</h2>
             <p className="text-responsive-base text-gray-500 max-w-2xl mx-auto font-light px-4">
               A satisfação dos nossos pacientes é a nossa maior recompensa. Veja algumas avaliações reais do Google.
             </p>
@@ -661,7 +654,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-8 md:mb-12 lg:mb-16"
           >
-            <h2 className="text-responsive-2xl font-light mb-3 md:mb-4 text-[#2934b7]">Vamos Marcar Uma Consulta?</h2>
+            <h2 className="text-responsive-2xl font-light mb-3 md:mb-4 text-[#2934b7]">Vamos marcar uma consulta?</h2>
             <p className="text-responsive-base text-gray-600 font-light max-w-2xl mx-auto px-4">
               Procura dentista perto de mim? Estamos em Joane, Vila Nova de Famalicão. Aceitamos seguros de saúde dentista.
             </p>
