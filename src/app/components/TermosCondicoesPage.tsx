@@ -52,7 +52,7 @@ export default function TermosCondicoesPage() {
             </h1>
 
             <p className="text-lg text-gray-600 font-light">
-              Última atualização: 14 de abril de 2026
+              Última atualização: 9 de maio de 2026
             </p>
           </motion.div>
         </div>
