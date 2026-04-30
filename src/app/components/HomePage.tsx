@@ -50,7 +50,7 @@ export default function HomePage() {
     setIsSubmitting(true);
 
     try {
-      // Enviar email para 14216@ipam.pt via Formspree
+      // Enviar email para 14259@ipam.pt via Formspree
       const formspreeEndpoint = "https://formspree.io/f/xbdqggoa";
 
       const payload = {
@@ -62,7 +62,7 @@ export default function HomePage() {
         mensagem: formData.message || "Sem mensagem adicional",
         _subject: "Novo agendamento de consulta - Clínica Predileta",
         _replyto: formData.email,
-        _cc: "14216@ipam.pt"
+        _cc: "14259@ipam.pt"
       };
 
       const response = await fetch(formspreeEndpoint, {
