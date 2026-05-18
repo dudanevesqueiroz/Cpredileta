@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowLeft, Heart, Target, Clock, MapPin, Star, Calendar } from "lucide-react";
-import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
+import logoPredileta from "../../imports/Logotipo_Predileta-removebg-preview.png";
 import fotoDoutoraDora from "../../imports/20260512_160537513_iOS.PNG";
 import fotoEquipa from "../../imports/20260512_160644791_iOS.PNG";
 

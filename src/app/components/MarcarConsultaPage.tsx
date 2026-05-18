@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowLeft, Calendar, Clock, Phone, Mail, Send, User, Stethoscope, Loader2 } from "lucide-react";
 import { useState } from "react";
-import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
+import logoPredileta from "../../imports/Logotipo_Predileta-removebg-preview.png";
 import Toast from "./Toast";
 import PaymentMethods from "./PaymentMethods";
 

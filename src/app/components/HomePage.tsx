@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { useState, useRef } from "react";
 import { Link } from "react-router";
-import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
+import logoPredileta from "../../imports/Logotipo_Predileta-removebg-preview.png";
 import logoSearchIcon from "../../imports/logo-predileta-icon.jpeg";
 import heroBackground from "../../imports/ChatGPT_Image_18_05_2026__14_21_16.png";
 import branqueamentoAntes from "../../imports/Captura_de_ecrã_2026-04-14_181811.png";

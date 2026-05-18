@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowLeft, Star, Quote, Calendar, Sparkles, Heart } from "lucide-react";
-import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
+import logoPredileta from "../../imports/Logotipo_Predileta-removebg-preview.png";
 import PaymentMethods from "./PaymentMethods";
 import branqueamentoAntes from "../../imports/Captura_de_ecrã_2026-04-14_144412.png";
 import branqueamentoDepois from "../../imports/Captura_de_ecrã_2026-04-14_144417.png";

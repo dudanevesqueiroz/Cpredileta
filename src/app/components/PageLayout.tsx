@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { ArrowLeft } from "lucide-react";
-import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
+import logoPredileta from "../../imports/Logotipo_Predileta-removebg-preview.png";
 
 interface PageLayoutProps {
   children: React.ReactNode;

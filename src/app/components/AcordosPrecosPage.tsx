@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowLeft, Calendar, CreditCard, FileText, Users, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, CheckCircle } from "lucide-react";
-import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
-import logoTipIcon from "../../imports/Logótipo_Predileta-removebg-preview-1.png";
+import logoPredileta from "../../imports/Logotipo_Predileta-removebg-preview.png";
+import logoTipIcon from "../../imports/Logotipo_Predileta-removebg-preview-1.png";
 import PaymentMethods from "./PaymentMethods";
 
 export default function AcordosPrecosPage() {

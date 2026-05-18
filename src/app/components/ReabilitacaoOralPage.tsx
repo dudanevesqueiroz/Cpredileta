@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowLeft, Layers, CheckCircle, Calendar } from "lucide-react";
-import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
+import logoPredileta from "../../imports/Logotipo_Predileta-removebg-preview.png";
 
 export default function ReabilitacaoOralPage() {
   return (

@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowLeft, Phone, Mail, MapPin, Calendar, Facebook, Instagram, Youtube, Linkedin, Clock } from "lucide-react";
 import { useState } from "react";
-import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
+import logoPredileta from "../../imports/Logotipo_Predileta-removebg-preview.png";
 
 export default function ContactosPage() {
   const [formData, setFormData] = useState({

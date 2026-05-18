@@ -3,7 +3,7 @@ import { Search, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import logoSearchIcon from "../../imports/logo-predileta-icon.jpeg";
-import logoTipIcon from "../../imports/Logótipo_Predileta-removebg-preview-1.png";
+import logoTipIcon from "../../imports/Logotipo_Predileta-removebg-preview-1.png";
 
 interface SearchModalProps {
   isOpen: boolean;
