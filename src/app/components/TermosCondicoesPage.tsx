@@ -89,7 +89,7 @@ export default function TermosCondicoesPage() {
                 <p className="mb-2"><strong className="font-medium">Morada:</strong> Av. Padre Silva Rego, 592 Loja 1, 4770-205 Joane, Vila Nova de Famalicão, Portugal</p>
                 <p className="mb-2"><strong className="font-medium">Email:</strong> geral@clinicapredileta.pt</p>
                 <p className="mb-2"><strong className="font-medium">Telefone:</strong> 910 658 115</p>
-                <p className="mb-2"><strong className="font-medium">Diretora Clínica:</strong> Dra. Maria (OMD 12345)</p>
+                <p className="mb-2"><strong className="font-medium">Diretora Clínica:</strong> Doutora Dora (OMD 12345)</p>
                 <p className="mb-0"><strong className="font-medium">Alvará:</strong> n.º E123456 emitido pela Entidade Reguladora da Saúde (ERS)</p>
               </div>
             </div>

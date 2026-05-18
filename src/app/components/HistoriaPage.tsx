@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { ArrowLeft, Award, Heart, Users, Target, Clock, MapPin, Star, Calendar } from "lucide-react";
+import { ArrowLeft, Heart, Target, Clock, MapPin, Star, Calendar } from "lucide-react";
 import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
+import fotoDoutoraDora from "../../imports/20260512_160537513_iOS.PNG";
+import fotoEquipa from "../../imports/20260512_160644791_iOS.PNG";
 
 export default function HistoriaPage() {
   return (
@@ -75,7 +77,7 @@ export default function HistoriaPage() {
               <div className="flex-1">
                 <h3 className="text-2xl font-light text-gray-800 mb-4">O Início da Jornada</h3>
                 <p className="text-gray-600 leading-relaxed font-light">
-                  A Clínica Dentária Predileta abriu as suas portas em Joane com um sonho: oferecer cuidados de saúde oral de excelência num ambiente acolhedor e familiar. Fundada pela Dra. Maria, a clínica nasceu com o compromisso de tratar cada paciente como família, construindo relações de confiança duradouras.
+                  A Clínica Dentária Predileta abriu as suas portas em Joane com um sonho: oferecer cuidados de saúde oral de excelência num ambiente acolhedor e familiar. Fundada pela Doutora Dora, a clínica nasceu com o compromisso de tratar cada paciente como família, construindo relações de confiança duradouras.
                 </p>
               </div>
             </motion.div>
@@ -264,10 +266,14 @@ export default function HistoriaPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="w-48 h-48 mx-auto mb-4 md:mb-6 bg-gradient-to-br from-[#2934b7] to-[#1E2894] rounded-full flex items-center justify-center">
-                <Users className="w-24 h-24 text-white" />
+              <div className="w-48 h-48 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <img
+                  src={fotoDoutoraDora}
+                  alt="Doutora Dora - Diretora Clínica"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="text-2xl font-light text-gray-800 mb-2">Dra. Maria</h3>
+              <h3 className="text-2xl font-light text-gray-800 mb-2">Doutora Dora</h3>
               <p className="text-[#2934b7] mb-4 font-light">Diretora Clínica | OMD 12345</p>
               <p className="text-gray-600 leading-relaxed font-light">
                 Fundadora da clínica, especialista em Medicina Dentária com mais de 25 anos de experiência. Pós-graduada em Implantologia e Reabilitação Oral.
@@ -281,8 +287,12 @@ export default function HistoriaPage() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <div className="w-48 h-48 mx-auto mb-4 md:mb-6 bg-gradient-to-br from-[#2934b7] to-[#1E2894] rounded-full flex items-center justify-center">
-                <Award className="w-24 h-24 text-white" />
+              <div className="w-48 h-48 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <img
+                  src={fotoEquipa}
+                  alt="Equipa Multidisciplinar da Clínica Predileta"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-2xl font-light text-gray-800 mb-2">Equipa Multidisciplinar</h3>
               <p className="text-[#2934b7] mb-4 font-light">Especialistas Certificados</p>

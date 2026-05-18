@@ -1,15 +1,15 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import {
   Smile, Calendar, Stethoscope, Sparkles, AlignCenterHorizontal,
   PlusCircle, Award, Clock, MapPin, Facebook, Instagram, MessageCircle,
   Phone, Mail, ArrowRight, Star, Heart, Users, Cpu, HeartHandshake,
   Shield, CheckCircle, Target, Zap, Send, FileCheck, Scale, Youtube, Linkedin, Search, Loader2
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router";
 import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
 import logoSearchIcon from "../../imports/logo-predileta-icon.jpeg";
-import heroBackground from "../../imports/Dentista_na_clínica_dentária.png";
+import heroBackground from "../../imports/ChatGPT_Image_18_05_2026__14_21_16.png";
 import branqueamentoAntes from "../../imports/Captura_de_ecrã_2026-04-14_181811.png";
 import branqueamentoDepois from "../../imports/Captura_de_ecrã_2026-04-14_181819.png";
 import clinicaImage from "../../imports/clinica-predileta.jpeg";
@@ -37,6 +37,15 @@ export default function HomePage() {
     type: "success" as "success" | "error",
     message: "",
   });
+
+  // Parallax effect for hero section
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.5]);
 
   const showToast = (type: "success" | "error", message: string) => {
     setToast({ show: true, type, message });
@@ -101,46 +110,46 @@ export default function HomePage() {
       {/* Search Modal */}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
-      {/* Header */}
-      <header className="header-fixed bg-white/80 backdrop-blur-md shadow-sm">
+      {/* Header - Premium Floating */}
+      <header className="header-fixed" style={{ background: 'transparent', boxShadow: 'none' }}>
         {/* Main Navigation */}
-        <nav className="border-b border-gray-100/50">
+        <nav className="backdrop-blur-[1px]">
           <div className="max-w-responsive">
-            <div className="flex justify-between items-center py-3 md:py-4">
+            <div className="flex justify-between items-center py-2 md:py-2.5">
               <a href="#" className="flex items-center gap-2 md:gap-3">
                 <div className="flex items-center gap-2 md:gap-3">
                   <img
                     src={logoPredileta}
                     alt="Logo Clínica Predileta"
-                    className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                    className="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-lg"
                   />
                   <div>
-                    <div className="text-base md:text-xl font-light tracking-wide text-[#2934b7]">Predileta</div>
-                    <div className="text-[9px] md:text-[10px] uppercase tracking-widest text-[#2934b7]">Clínica Dentária</div>
+                    <div className="text-base md:text-xl font-light tracking-wide text-white drop-shadow-md">Predileta</div>
+                    <div className="text-[9px] md:text-[10px] uppercase tracking-widest text-white/80">Clínica Dentária</div>
                   </div>
                 </div>
               </a>
 
               <ul className="hidden lg:flex items-center gap-2">
-                <li><a href="#" className="px-5 py-2 rounded-full hover:text-[#1BADC4] hover:bg-gray-100 transition-all font-light text-[#2934b7]">Início</a></li>
-                <li><Link to="/historia" className="px-5 py-2 rounded-full hover:text-[#1BADC4] hover:bg-gray-100 transition-all font-light text-[#2934b7]">Sobre Nós</Link></li>
-                <li><Link to="/especialidades" className="px-5 py-2 rounded-full hover:text-[#1BADC4] hover:bg-gray-100 transition-all font-light text-[#2934b7]">Especialidades</Link></li>
-                <li><Link to="/acordos-precos" className="px-5 py-2 rounded-full hover:text-[#1BADC4] hover:bg-gray-100 transition-all font-light text-[#2934b7]">Acordos e Preços</Link></li>
-                <li><Link to="/contactos" className="px-5 py-2 rounded-full hover:text-[#1BADC4] hover:bg-gray-100 transition-all font-light text-[#2934b7]">Contactos</Link></li>
+                <li><a href="#" className="px-5 py-2 rounded-full hover:text-[#1BADC4] transition-all font-light text-white">Início</a></li>
+                <li><Link to="/historia" className="px-5 py-2 rounded-full hover:text-[#1BADC4] transition-all font-light text-white">Sobre Nós</Link></li>
+                <li><Link to="/especialidades" className="px-5 py-2 rounded-full hover:text-[#1BADC4] transition-all font-light text-white">Especialidades</Link></li>
+                <li><Link to="/acordos-precos" className="px-5 py-2 rounded-full hover:text-[#1BADC4] transition-all font-light text-white">Preços</Link></li>
+                <li><Link to="/contactos" className="px-5 py-2 rounded-full hover:text-[#1BADC4] transition-all font-light text-white">Contactos</Link></li>
               </ul>
 
               <div className="hidden lg:flex items-center gap-3 xl:gap-4">
                 <motion.button
                   onClick={() => setIsSearchOpen(true)}
-                  className="relative p-2 xl:p-2.5 rounded-full hover:bg-gray-100 transition-all group"
+                  className="relative p-2 xl:p-2.5 rounded-full transition-all group"
                   aria-label="Abrir pesquisa"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Search className="w-4 h-4 xl:w-5 xl:h-5 text-gray-600 group-hover:text-[#2934b7] transition-colors" />
+                  <Search className="w-4 h-4 xl:w-5 xl:h-5 text-white group-hover:text-[#1BADC4] transition-colors" />
                 </motion.button>
 
-                <Link to="/marcar-consulta" className="inline-flex items-center gap-2 px-4 py-2 xl:px-6 xl:py-3 bg-[#2934b7] text-white text-sm xl:text-base rounded-full hover:bg-[#1E2894] hover:shadow-xl hover:-translate-y-0.5 transition-all font-light text-[#ffffff]">
+                <Link to="/marcar-consulta" className="inline-flex items-center gap-2 px-4 py-2 xl:px-6 xl:py-3 bg-[#2934b7] text-white text-sm xl:text-base rounded-full hover:bg-[#1E2894] hover:shadow-xl hover:-translate-y-0.5 transition-all font-light">
                   <Calendar className="w-4 h-4 xl:w-5 xl:h-5" />
                   Marcação Online
                 </Link>
@@ -149,21 +158,21 @@ export default function HomePage() {
               <div className="lg:hidden flex items-center gap-2">
                 <motion.button
                   onClick={() => setIsSearchOpen(true)}
-                  className="relative p-2 rounded-full hover:bg-gray-100 transition-all"
+                  className="relative p-2 rounded-full transition-all"
                   aria-label="Abrir pesquisa"
                   whileTap={{ scale: 0.9 }}
                 >
-                  <Search className="w-5 h-5 text-gray-600" />
+                  <Search className="w-5 h-5 text-white hover:text-[#1BADC4]" />
                   <img
                     src={logoSearchIcon}
                     alt="Predileta"
                     className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full object-cover border border-white shadow-sm"
                   />
                 </motion.button>
-                
+
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="p-2 text-gray-800"
+                  className="p-2 text-white"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -176,16 +185,28 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16 md:pt-20">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img
-            src={heroBackground}
-            alt="Clínica Dentária Predileta"
-            className="w-full h-full object-cover object-center"
+      <section ref={heroRef} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16 md:pt-20">
+        {/* Background Image with Overlay and Parallax */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            scale: heroScale,
+            opacity: heroOpacity
+          }}
+        >
+          <div
+            className="w-full h-full bg-cover"
+            style={{
+              backgroundImage: `url(${heroBackground})`,
+              backgroundPosition: 'center center',
+              filter: 'brightness(1.08) contrast(1.02)',
+            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
-        </div>
+          {/* Overlay escuro subtil (~40% opacity) para melhor legibilidade */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/42 via-black/38 to-black/52"></div>
+          {/* Blur sutil para criar profundidade cinematográfica */}
+          <div className="absolute inset-0 backdrop-blur-[0.3px]"></div>
+        </motion.div>
 
         {/* Content */}
         <div className="relative z-10 w-full max-w-responsive py-12 md:py-20 text-center">
@@ -194,11 +215,9 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-hero font-light text-white leading-tight mb-4 md:mb-6 tracking-wide px-4">
-              CLÍNICA DENTÁRIA PREDILETA
-            </h1>
+            <h1 className="text-hero font-light text-white leading-tight mb-4 md:mb-6 tracking-wide px-4 drop-shadow-lg">CLÍNICA PREDILETA</h1>
 
-            <p className="text-responsive-lg md:text-responsive-xl text-white/90 mb-8 md:mb-12 font-light px-4">
+            <p className="text-responsive-lg md:text-responsive-xl text-white/95 mb-8 md:mb-12 font-light px-4 drop-shadow-md">
               Dentista em Famalicão | Cuidamos do seu sorriso desde 2005
             </p>
           </motion.div>
@@ -494,7 +513,7 @@ export default function HomePage() {
                 {
                   name: "João Costa",
                   date: "há 1 mês",
-                  text: "Fiz um tratamento de ortodontia e estou muito satisfeito com o resultado. A Dra. Maria explicou tudo com calma e o acompanhamento foi impecável."
+                  text: "Fiz um tratamento de ortodontia e estou muito satisfeito com o resultado. A Doutora Dora explicou tudo com calma e o acompanhamento foi impecável."
                 },
                 {
                   name: "Carla Ferreira",
@@ -519,7 +538,7 @@ export default function HomePage() {
                 {
                   name: "Teresa Martins",
                   date: "há 1 semana",
-                  text: "Fiz implantes dentários e estou muito feliz com o resultado. A Dra. Maria é uma profissional extraordinária, sempre atenciosa."
+                  text: "Fiz implantes dentários e estou muito feliz com o resultado. A Doutora Dora é uma profissional extraordinária, sempre atenciosa."
                 },
                 {
                   name: "Miguel Pereira",
@@ -535,7 +554,7 @@ export default function HomePage() {
                 {
                   name: "João Costa",
                   date: "há 1 mês",
-                  text: "Fiz um tratamento de ortodontia e estou muito satisfeito com o resultado. A Dra. Maria explicou tudo com calma e o acompanhamento foi impecável."
+                  text: "Fiz um tratamento de ortodontia e estou muito satisfeito com o resultado. A Doutora Dora explicou tudo com calma e o acompanhamento foi impecável."
                 },
                 {
                   name: "Carla Ferreira",
@@ -560,7 +579,7 @@ export default function HomePage() {
                 {
                   name: "Teresa Martins",
                   date: "há 1 semana",
-                  text: "Fiz implantes dentários e estou muito feliz com o resultado. A Dra. Maria é uma profissional extraordinária, sempre atenciosa."
+                  text: "Fiz implantes dentários e estou muito feliz com o resultado. A Doutora Dora é uma profissional extraordinária, sempre atenciosa."
                 },
                 {
                   name: "Miguel Pereira",
@@ -1133,9 +1152,100 @@ export default function HomePage() {
           {/* Payment Methods */}
           <PaymentMethods />
 
+          {/* Métodos de Pagamento */}
+          <div className="border-t border-gray-800 pt-8 mt-8">
+            <h4 className="text-white font-light mb-6 text-center text-lg">Métodos de Pagamento</h4>
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-8">
+              {/* MB WAY */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <img
+                  src="https://www.mbway.pt/wp-content/themes/mediafone/img/logo.svg"
+                  alt="MB WAY"
+                  className="h-6 w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-medium text-gray-700">MB WAY</span>';
+                  }}
+                />
+              </div>
+
+              {/* Multibanco */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Multibanco_logo.svg"
+                  alt="Multibanco"
+                  className="h-6 w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-medium text-gray-700">Multibanco</span>';
+                  }}
+                />
+              </div>
+
+              {/* Visa */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
+                  alt="Visa"
+                  className="h-5 w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-medium text-blue-700">VISA</span>';
+                  }}
+                />
+              </div>
+
+              {/* Mastercard */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                  alt="Mastercard"
+                  className="h-8 w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-medium text-red-600">Mastercard</span>';
+                  }}
+                />
+              </div>
+
+              {/* PayPal */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <img
+                  src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg"
+                  alt="PayPal"
+                  className="h-6 w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-medium text-blue-600">PayPal</span>';
+                  }}
+                />
+              </div>
+
+              {/* Apple Pay */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <svg viewBox="0 0 48 20" className="h-6 w-auto" fill="currentColor">
+                  <path d="M6.78 2.68c.46-.58.77-1.38.68-2.18-.66.03-1.46.44-1.93 1-.42.48-.79 1.26-.69 2 .73.06 1.48-.37 1.94-.82zm.67 1.07c-1.08-.06-2 .61-2.51.61-.51 0-1.3-.58-2.14-.56-1.1.02-2.12.64-2.69 1.63-1.15 1.99-.3 4.94.82 6.56.55.79 1.21 1.68 2.07 1.65.82-.03 1.13-.53 2.12-.53s1.26.53 2.14.51c.89-.02 1.46-.82 2.01-1.61.64-.91.9-1.79.92-1.84-.02-.01-1.77-.68-1.79-2.69-.02-1.68 1.37-2.48 1.43-2.53-.78-1.14-2-1.27-2.43-1.3-.05 0-.05-.01-.05-.01zm11.94-.42h-1.81v-1.56h-1.06v1.56h-1.35v.95h1.35v3.76c0 1.41.61 2.02 2.16 2.02.31 0 .62-.03.77-.06v-.95c-.14.02-.37.04-.66.04-.74 0-1.04-.28-1.04-1.05V4.28h1.81v-.95h-.17zm3.46 5.79c-1.31 0-2.17-1-2.17-2.52 0-1.53.87-2.53 2.17-2.53 1.3 0 2.17 1 2.17 2.53 0 1.52-.87 2.52-2.17 2.52zm0-.95c.87 0 1.35-.72 1.35-1.57 0-.86-.48-1.58-1.35-1.58s-1.35.72-1.35 1.58c0 .85.48 1.57 1.35 1.57zm7.55-3.84h-.98l-1.35 4.65h-.03l-1.37-4.65h-1.06l2 6.39c-.11.42-.35.59-.73.59-.11 0-.33-.01-.42-.02v.88c.11.02.41.04.56.04.95 0 1.4-.4 1.74-1.49l2.14-6.39h-.5z"/>
+                  <text x="31" y="14" className="text-[9px] font-semibold" fill="currentColor">Pay</text>
+                </svg>
+              </div>
+
+              {/* Google Pay */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <svg viewBox="0 0 61 25" className="h-6 w-auto">
+                  <path d="M27.2 11.1v5.5h-1.7v-13h4.5c1.1 0 2.1.4 2.8 1.1.8.7 1.2 1.7 1.2 2.7 0 1.1-.4 2-.1.2 2.8-.7.7-1.7 1.1-2.8 1.1h-4.5zm0-4.8v3.3h2.9c.7 0 1.3-.2 1.8-.7.5-.4.7-1 .7-1.7 0-.6-.2-1.2-.7-1.6-.5-.4-1.1-.7-1.8-.7l-2.9.4zm11.3-1.1c1.1 0 2.1.3 2.9.9l-.8 1.3c-.7-.5-1.4-.7-2.2-.7-.5 0-.9.1-1.2.3-.3.2-.4.5-.4.9 0 .5.4.8 1.2 1.1l1.5.5c.9.3 1.6.7 2 1.1.4.5.6 1.1.6 1.8 0 1-.4 1.8-1.1 2.4-.8.6-1.7.9-2.8.9-1.3 0-2.4-.3-3.2-1l.8-1.3c.7.6 1.6.9 2.6.9.6 0 1-.1 1.4-.4.3-.3.5-.6.5-1.1 0-.5-.4-.9-1.2-1.2l-1.5-.5c-.9-.3-1.5-.6-1.9-1-.4-.4-.6-1-.6-1.7 0-.9.3-1.7 1-2.3.7-.5 1.6-.8 2.6-.8l-.2.9z" fill="#3C4043"/>
+                  <path d="M49.8 7.9c1.2 0 2.1.3 2.9 1 .7.7 1.1 1.6 1.1 2.8v4.9h-1.6v-1.1h-.1c-.7.9-1.5 1.3-2.6 1.3-1 0-1.8-.3-2.4-.8s-.9-1.2-.9-2c0-.9.3-1.6 1-2.1.7-.5 1.5-.8 2.6-.8.9 0 1.7.2 2.3.5v-.4c0-.6-.2-1.1-.7-1.5-.4-.4-1-.6-1.6-.6-.9 0-1.6.4-2.2 1.1l-1.5-.9c.9-1.1 2-1.7 3.5-1.7l.2.3zm-2.2 5.5c0 .4.2.8.5 1.1.4.3.8.4 1.3.4.7 0 1.3-.3 1.8-.8.5-.5.8-1.1.8-1.7-.5-.4-1.2-.6-2-.6-.6 0-1.2.2-1.6.5-.4.3-.6.7-.6 1.2l-.2-.1zm11.8-8.3h1.7l-5.3 13.5h-1.7l2-4.3-3.5-9.2h1.8l2.5 7.1h.1l2.4-7.1z" fill="#3C4043"/>
+                  <path d="M17.4 9.8c0-.5 0-.9-.1-1.4H9v2.6h4.7c-.2 1.1-.8 2-1.7 2.6v2.2h2.7c1.6-1.5 2.5-3.7 2.5-6.3l.2.3z" fill="#4285F4"/>
+                  <path d="M9 17.8c2.3 0 4.2-.8 5.6-2.1l-2.7-2.2c-.8.5-1.7.8-2.9.8-2.2 0-4.1-1.5-4.8-3.5H1.4v2.3c1.4 2.8 4.3 4.7 7.6 4.7z" fill="#34A853"/>
+                  <path d="M4.2 10.8c-.4-1.1-.4-2.3 0-3.4V5.1H1.4c-1.2 2.4-1.2 5.2 0 7.6l2.8-1.9z" fill="#FBBC04"/>
+                  <path d="M9 4.4c1.3 0 2.4.4 3.3 1.3l2.5-2.5C13.2 1.7 11.3.9 9 .9 5.7.9 2.8 2.8 1.4 5.6l2.8 2.2c.7-2 2.6-3.5 4.8-3.5z" fill="#EA4335"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
           <div className="border-t border-gray-800 pt-8 mt-8 text-center text-sm font-light">
             <p>&copy; 2026 Clínica Dentária Predileta. Todos os direitos reservados.</p>
-            <p className="text-xs text-gray-500 mt-2">Alvará n.º E123456 | Diretora Clínica: Dra. Maria - Médico Dentista (OMD 12345) | Centro Cirúrgico Dentário</p>
+            <p className="text-xs text-gray-500 mt-2">Alvará n.º E123456 | Diretora Clínica: Doutora Dora - Médico Dentista (OMD 12345) | Centro Cirúrgico Dentário</p>
             <div className="flex justify-center gap-4 mt-4 text-xs">
               <Link to="/politica-privacidade" className="text-gray-400 hover:text-[#2934b7] transition-colors">Política de Privacidade</Link>
               <span className="text-gray-600">|</span>

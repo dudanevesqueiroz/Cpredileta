@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { ArrowLeft, Smile, Stethoscope, AlignCenterHorizontal, PlusCircle, Sparkles, Heart, Calendar, CheckCircle } from "lucide-react";
+import { ArrowLeft, Smile, Stethoscope, AlignCenterHorizontal, Sparkles, Heart, Calendar, CheckCircle, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, Shield, Award, Scale } from "lucide-react";
 import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
 import PaymentMethods from "./PaymentMethods";
 
@@ -46,20 +46,6 @@ export default function EspecialidadesPage() {
         "Correção de mordida",
         "Tratamento de má oclusão",
         "Ortodontia para crianças (odontopediatria) e adultos"
-      ]
-    },
-    {
-      icon: PlusCircle,
-      title: "Implantologia e Prótese Dentária",
-      description: "Implantes dentários e próteses pelo nosso cirurgião dentista especializado",
-      fullDescription: "Os implantes dentários são a solução mais moderna e eficaz para substituir dentes perdidos. O nosso cirurgião dentista especializado em implantologia coloca raízes artificiais de titânio que se integram ao osso, proporcionando uma base sólida para próteses fixas. Também fazemos próteses removíveis. O resultado é natural, confortável e duradouro.",
-      image: "https://images.unsplash.com/photo-1643216503948-839a54dc57f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZW50YWwlMjBpbXBsYW50JTIwdGVldGh8ZW58MXx8fHwxNzc2MDk3ODkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      benefits: [
-        "Implantes dentários unitários",
-        "Prótese fixa sobre implantes",
-        "Prótese removível completa",
-        "All-on-4 e All-on-6",
-        "Planejamento digital 3D pelo cirurgião dentista"
       ]
     },
     {
@@ -229,11 +215,135 @@ export default function EspecialidadesPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-12">
-        <div className="max-w-7xl mx-auto px-6">
+      <footer className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] text-gray-300">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <img
+                  src={logoPredileta}
+                  alt="Logo Clínica Predileta"
+                  className="w-12 h-12 object-contain"
+                />
+                <div>
+                  <div className="text-xl font-light text-white">Predileta</div>
+                  <div className="text-xs text-gray-400 font-light">Clínica Dentária</div>
+                </div>
+              </div>
+              <p className="text-sm leading-relaxed font-light">
+                Dentista em Famalicão desde 2005. Médico dentista e cirurgião dentista qualificados. A sua saúde oral é a nossa prioridade. Clínica dentista completa com dentista infantil, ortodontia e implantologia.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-white font-light mb-4">Contactos</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-start gap-2">
+                  <Phone className="w-4 h-4 mt-0.5 text-[#2934b7] bg-[#2d0cd600]" />
+                  <span className="font-light">910 658 115</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Mail className="w-4 h-4 mt-0.5 text-[#2934b7]" />
+                  <span className="font-light">geral@clinicapredileta.pt</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 mt-0.5 text-[#2934b7]" />
+                  <span className="font-light">Rua Central de Joane<br />Vila Nova de Famalicão</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-light mb-4">Horário</h4>
+              <ul className="space-y-2 text-sm font-light">
+                <li className="flex justify-between gap-4">
+                  <span>Segunda - Sexta</span>
+                  <span className="text-right text-[#f7f8ff]">9h-12:30 | 14h-19h</span>
+                </li>
+                <li className="flex justify-between gap-4">
+                  <span>Sábado</span>
+                  <span className="text-[#f7f8ff]">9h-12:30</span>
+                </li>
+                <li className="flex justify-between gap-4">
+                  <span>Domingo</span>
+                  <span className="text-[#f7faff]">Encerrado</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-light mb-4">Redes Sociais</h4>
+              <div className="flex gap-3 mb-6 flex-wrap">
+                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#2934b7] rounded-full flex items-center justify-center transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#2934b7] rounded-full flex items-center justify-center transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#2934b7] rounded-full flex items-center justify-center transition-colors">
+                  <Youtube className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#2934b7] rounded-full flex items-center justify-center transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#2934b7] rounded-full flex items-center justify-center transition-colors" title="TikTok">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                  </svg>
+                </a>
+              </div>
+
+              <h4 className="text-white font-light mb-3 text-sm">Certificações</h4>
+              <div className="flex flex-col gap-2 text-xs font-light">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-3 h-3 text-[#2934b7]" />
+                  <span>Certificação ERS</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award className="w-3 h-3 text-[#2934b7]" />
+                  <span>Ordem dos Médicos Dentistas</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-3 h-3 text-[#2934b7]" />
+                  <span>ISO 9001:2015</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Legislação */}
+          <div className="border-t border-gray-800 pt-8 mb-8">
+            <h4 className="text-white font-light mb-4 flex items-center gap-2">
+              <Scale className="w-4 h-4 text-[#2934b7]" />
+              Legislação em Vigor
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-xs font-light text-gray-400">
+              <div>
+                <p className="mb-2">• Lei n.º 110/2009 - Estatuto da Ordem dos Médicos Dentistas</p>
+                <p className="mb-2">• Decreto-Lei n.º 353/99 - Regras de publicidade de serviços médicos</p>
+                <p>• Lei n.º 15/2014 - Livro de Reclamações Eletrónico</p>
+              </div>
+              <div>
+                <p className="mb-2">• Regulamento Geral de Proteção de Dados (RGPD)</p>
+                <p className="mb-2">• Decreto-Lei n.º 10/2015 - Gestão de Resíduos Hospitalares</p>
+                <p>• Licença de Funcionamento n.º: E123456/2005</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Payment Methods */}
           <PaymentMethods />
-          <div className="text-center mt-8">
-            <p className="text-sm font-light">&copy; 2026 Clínica Dentária Predileta. Todos os direitos reservados.</p>
+
+          <div className="border-t border-gray-800 pt-8 mt-8 text-center text-sm font-light">
+            <p>&copy; 2026 Clínica Dentária Predileta. Todos os direitos reservados.</p>
+            <p className="text-xs text-gray-500 mt-2">Alvará n.º E123456 | Diretora Clínica: Doutora Dora - Médico Dentista (OMD 12345) | Centro Cirúrgico Dentário</p>
+            <div className="flex justify-center gap-4 mt-4 text-xs">
+              <Link to="/politica-privacidade" className="text-gray-400 hover:text-[#2934b7] transition-colors">Política de Privacidade</Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/termos-condicoes" className="text-gray-400 hover:text-[#2934b7] transition-colors">Termos e Condições</Link>
+              <span className="text-gray-600">|</span>
+              <a href="https://www.livroreclamacoes.pt/inicio/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#2934b7] transition-colors">Livro de Reclamações</a>
+            </div>
           </div>
         </div>
       </footer>

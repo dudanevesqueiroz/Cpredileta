@@ -37,7 +37,7 @@ export default function AntesDepoisPage() {
       nome: "Miguel R.",
       idade: 28,
       avaliacao: 5,
-      testemunho: "Sempre tive os dentes desalinhados mas nunca quis usar aparelho tradicional. Os alinhadores invisíveis foram a solução perfeita! Ninguém notava que estava a fazer tratamento e em apenas 8 meses o meu sorriso ficou completamente transformado. Muito obrigado Dra. Maria!",
+      testemunho: "Sempre tive os dentes desalinhados mas nunca quis usar aparelho tradicional. Os alinhadores invisíveis foram a solução perfeita! Ninguém notava que estava a fazer tratamento e em apenas 8 meses o meu sorriso ficou completamente transformado. Muito obrigado Doutora Dora!",
       data: "Fevereiro 2026"
     },
     {
@@ -48,7 +48,7 @@ export default function AntesDepoisPage() {
       nome: "João S.",
       idade: 45,
       avaliacao: 5,
-      testemunho: "Perdi um dente há alguns anos e sempre me senti envergonhado ao sorrir. O implante que fiz na Clínica Predileta mudou a minha vida. Parece e funciona exatamente como um dente natural. A Dra. Maria explicou-me todo o processo e fez um trabalho impecável. Recomendo a 100%!",
+      testemunho: "Perdi um dente há alguns anos e sempre me senti envergonhado ao sorrir. O implante que fiz na Clínica Predileta mudou a minha vida. Parece e funciona exatamente como um dente natural. A Doutora Dora explicou-me todo o processo e fez um trabalho impecável. Recomendo a 100%!",
       data: "Janeiro 2026"
     },
     {
@@ -70,7 +70,7 @@ export default function AntesDepoisPage() {
       nome: "Beatriz L.",
       idade: 35,
       avaliacao: 5,
-      testemunho: "Sempre sonhei com um sorriso perfeito e as facetas de porcelana tornaram esse sonho realidade. O trabalho da Dra. Maria é uma verdadeira obra de arte! O resultado ficou super natural e todas as pessoas me perguntam qual é o meu segredo. Não podia estar mais feliz!",
+      testemunho: "Sempre sonhei com um sorriso perfeito e as facetas de porcelana tornaram esse sonho realidade. O trabalho da Doutora Dora é uma verdadeira obra de arte! O resultado ficou super natural e todas as pessoas me perguntam qual é o meu segredo. Não podia estar mais feliz!",
       data: "Novembro 2025"
     },
     {
@@ -81,7 +81,7 @@ export default function AntesDepoisPage() {
       nome: "Mariana S.",
       idade: 29,
       avaliacao: 5,
-      testemunho: "As facetas de porcelana transformaram completamente o meu sorriso! O resultado ficou incrivelmente natural e a minha confiança aumentou muito. A Dra. Maria é extremamente profissional e atenciosa. Recomendo a toda a gente!",
+      testemunho: "As facetas de porcelana transformaram completamente o meu sorriso! O resultado ficou incrivelmente natural e a minha confiança aumentou muito. A Doutora Dora é extremamente profissional e atenciosa. Recomendo a toda a gente!",
       data: "Março 2026"
     },
     {
@@ -314,7 +314,7 @@ export default function AntesDepoisPage() {
                 ))}
               </div>
               <p className="text-gray-600 leading-relaxed mb-4 font-light italic">
-                "A Clínica Predileta é simplesmente fantástica! Desde a receção até ao consultório, tudo é feito com o máximo cuidado e profissionalismo. A Dra. Maria é uma excelente profissional, sempre atenta e preocupada com o bem-estar dos pacientes. Recomendo vivamente!"
+                "A Clínica Predileta é simplesmente fantástica! Desde a receção até ao consultório, tudo é feito com o máximo cuidado e profissionalismo. A Doutora Dora é uma excelente profissional, sempre atenta e preocupada com o bem-estar dos pacientes. Recomendo vivamente!"
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-gradient-to-br from-[#2934b7] to-[#1E2894] rounded-full flex items-center justify-center text-white font-light">

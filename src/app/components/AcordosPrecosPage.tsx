@@ -1,25 +1,11 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { ArrowLeft, Calendar, CreditCard, FileText, Shield, Users, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, CheckCircle } from "lucide-react";
+import { ArrowLeft, Calendar, CreditCard, FileText, Users, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, CheckCircle } from "lucide-react";
 import logoPredileta from "../../imports/Logótipo_Predileta-removebg-preview.png";
 import logoTipIcon from "../../imports/Logótipo_Predileta-removebg-preview-1.png";
-import { useState } from "react";
 import PaymentMethods from "./PaymentMethods";
 
 export default function AcordosPrecosPage() {
-  const [isPaused, setIsPaused] = useState(false);
-
-  const seguradoras = [
-    "Médis", "Advancecare", "Medicare", "Multicare", "AdvanceCare",
-    "Allianz", "Generali", "AGEAS", "Fidelidade", "Liberty",
-    "Tranquilidade", "Victoria", "Lusitania", "AXA", "Zurich"
-  ];
-
-  const parceirosInstitucionais = [
-    "ADSE", "SAMS", "SSME", "CGD Seguros", "SAD-PSP",
-    "SAD-GNR", "Millennium BCP", "Santander", "BPI"
-  ];
-
   const facilidades = [
     {
       icon: CreditCard,
@@ -30,11 +16,6 @@ export default function AcordosPrecosPage() {
       icon: FileText,
       title: "Financiamento Clínico",
       description: "Soluções de crédito personalizado através de parceiros bancários."
-    },
-    {
-      icon: Shield,
-      title: "Seguro de Saúde",
-      description: "Aceites os principais seguros e acordos com seguradoras nacionais."
     },
     {
       icon: Users,
@@ -92,7 +73,7 @@ export default function AcordosPrecosPage() {
                 <li><Link to="/" className="px-5 py-2 rounded-full hover:text-[#1BADC4] hover:bg-gray-100 transition-all font-light text-[#2934b7]">Início</Link></li>
                 <li><Link to="/historia" className="px-5 py-2 rounded-full hover:text-[#1BADC4] hover:bg-gray-100 transition-all font-light text-[#2934b7]">Clínica</Link></li>
                 <li><Link to="/especialidades" className="px-5 py-2 rounded-full hover:text-[#1BADC4] hover:bg-gray-100 transition-all font-light text-[#2934b7]">Especialidades</Link></li>
-                <li><Link to="/acordos-precos" className="px-5 py-2 rounded-full bg-[#2934b7]/10 text-[#2934b7] font-medium">Acordos e Preços</Link></li>
+                <li><Link to="/acordos-precos" className="px-5 py-2 rounded-full bg-[#2934b7]/10 text-[#2934b7] font-medium">Preços</Link></li>
                 <li><Link to="/contactos" className="px-5 py-2 rounded-full hover:text-[#1BADC4] hover:bg-gray-100 transition-all font-light text-[#2934b7]">Contactos</Link></li>
               </ul>
 
@@ -114,122 +95,31 @@ export default function AcordosPrecosPage() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8F9FA] to-[#E9ECEF]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Lado Esquerdo */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="text-5xl md:text-6xl font-light text-[#2934b7] mb-6 leading-tight">
-                Acordos e Preços
-              </h1>
-              <p className="text-xl text-gray-600 font-light mb-8 leading-relaxed">
-                Transparência, confiança e acessibilidade. Trabalhamos com as principais seguradoras e oferecemos facilidades de pagamento para garantir que todos possam aceder a tratamentos de qualidade.
-              </p>
-              <Link
-                to="/marcar-consulta"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#2934b7] to-[#1E2894] text-white rounded-full hover:shadow-xl hover:-translate-y-1 transition-all font-medium text-lg"
-              >
-                <Calendar className="w-6 h-6" />
-                Marcar Consulta
-              </Link>
-              <p className="text-sm text-gray-500 font-light mt-6 flex items-center justify-center gap-2">
-                <img src={logoTipIcon} alt="Dica" className="w-5 h-5" />
-                Consulta de avaliação necessária para orçamento personalizado
-              </p>
-            </motion.div>
-
-            {/* Lado Direito - Imagem */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=600"
-                alt="Clínica moderna"
-                className="rounded-3xl shadow-2xl w-full"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Secção Acordos e Parcerias */}
-      <section className="py-24 bg-[#F7F9FB]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-4">Acordos e Seguradoras</h2>
-            <p className="text-lg text-gray-600 font-light max-w-2xl mx-auto">
-              Trabalhamos com as principais entidades seguradoras do país para facilitar o acesso aos nossos tratamentos dentários.
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h1 className="text-5xl md:text-6xl font-light text-[#2934b7] mb-6 leading-tight">
+              Preços
+            </h1>
+            <p className="text-xl text-gray-600 font-light mb-8 leading-relaxed max-w-3xl mx-auto">
+              Transparência, confiança e acessibilidade. Oferecemos facilidades de pagamento para garantir que todos possam aceder a tratamentos de qualidade.
             </p>
-          </div>
-
-          {/* Carrossel Principal de Seguradoras */}
-          <div className="mb-12 overflow-hidden">
-            <motion.div
-              className="flex gap-12"
-              animate={isPaused ? {} : {
-                x: [0, -2000]
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 30,
-                  ease: "linear"
-                }
-              }}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
+            <Link
+              to="/marcar-consulta"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#2934b7] to-[#1E2894] text-white rounded-full hover:shadow-xl hover:-translate-y-1 transition-all font-medium text-lg"
             >
-              {[...seguradoras, ...seguradoras].map((seguradora, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-48 h-24 bg-white rounded-xl border border-gray-200 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <span className="text-xl font-light text-gray-400">{seguradora}</span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Carrossel Secundário - Parceiros Institucionais */}
-          <div className="mb-8 overflow-hidden">
-            <motion.div
-              className="flex gap-12"
-              animate={isPaused ? {} : {
-                x: [-2000, 0]
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 25,
-                  ease: "linear"
-                }
-              }}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-            >
-              {[...parceirosInstitucionais, ...parceirosInstitucionais, ...parceirosInstitucionais].map((parceiro, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-48 h-24 bg-white rounded-xl border border-gray-200 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <span className="text-xl font-light text-gray-400">{parceiro}</span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          <p className="text-center text-sm text-gray-500 font-light mt-12 flex items-center justify-center gap-2">
-            <img src={logoTipIcon} alt="Info" className="w-5 h-5" />
-            Os acordos podem variar consoante a entidade seguradora e o plano associado. Contacte-nos para mais informações.
-          </p>
+              <Calendar className="w-6 h-6" />
+              Marcar Consulta
+            </Link>
+            <p className="text-sm text-gray-500 font-light mt-6 flex items-center justify-center gap-2">
+              <img src={logoTipIcon} alt="Dica" className="w-5 h-5" />
+              Consulta de avaliação necessária para orçamento personalizado
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -243,7 +133,7 @@ export default function AcordosPrecosPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {facilidades.map((facilidade, index) => (
               <motion.div
                 key={index}
@@ -436,6 +326,97 @@ export default function AcordosPrecosPage() {
 
           {/* Payment Methods */}
           <PaymentMethods />
+
+          {/* Métodos de Pagamento */}
+          <div className="border-t border-gray-800 pt-8 mt-8">
+            <h4 className="text-white font-light mb-6 text-center text-lg">Métodos de Pagamento</h4>
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-8">
+              {/* MB WAY */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <img
+                  src="https://www.mbway.pt/wp-content/themes/mediafone/img/logo.svg"
+                  alt="MB WAY"
+                  className="h-6 w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-medium text-gray-700">MB WAY</span>';
+                  }}
+                />
+              </div>
+
+              {/* Multibanco */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Multibanco_logo.svg"
+                  alt="Multibanco"
+                  className="h-6 w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-medium text-gray-700">Multibanco</span>';
+                  }}
+                />
+              </div>
+
+              {/* Visa */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
+                  alt="Visa"
+                  className="h-5 w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-medium text-blue-700">VISA</span>';
+                  }}
+                />
+              </div>
+
+              {/* Mastercard */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                  alt="Mastercard"
+                  className="h-8 w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-medium text-red-600">Mastercard</span>';
+                  }}
+                />
+              </div>
+
+              {/* PayPal */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <img
+                  src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg"
+                  alt="PayPal"
+                  className="h-6 w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-medium text-blue-600">PayPal</span>';
+                  }}
+                />
+              </div>
+
+              {/* Apple Pay */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <svg viewBox="0 0 48 20" className="h-6 w-auto" fill="currentColor">
+                  <path d="M6.78 2.68c.46-.58.77-1.38.68-2.18-.66.03-1.46.44-1.93 1-.42.48-.79 1.26-.69 2 .73.06 1.48-.37 1.94-.82zm.67 1.07c-1.08-.06-2 .61-2.51.61-.51 0-1.3-.58-2.14-.56-1.1.02-2.12.64-2.69 1.63-1.15 1.99-.3 4.94.82 6.56.55.79 1.21 1.68 2.07 1.65.82-.03 1.13-.53 2.12-.53s1.26.53 2.14.51c.89-.02 1.46-.82 2.01-1.61.64-.91.9-1.79.92-1.84-.02-.01-1.77-.68-1.79-2.69-.02-1.68 1.37-2.48 1.43-2.53-.78-1.14-2-1.27-2.43-1.3-.05 0-.05-.01-.05-.01zm11.94-.42h-1.81v-1.56h-1.06v1.56h-1.35v.95h1.35v3.76c0 1.41.61 2.02 2.16 2.02.31 0 .62-.03.77-.06v-.95c-.14.02-.37.04-.66.04-.74 0-1.04-.28-1.04-1.05V4.28h1.81v-.95h-.17zm3.46 5.79c-1.31 0-2.17-1-2.17-2.52 0-1.53.87-2.53 2.17-2.53 1.3 0 2.17 1 2.17 2.53 0 1.52-.87 2.52-2.17 2.52zm0-.95c.87 0 1.35-.72 1.35-1.57 0-.86-.48-1.58-1.35-1.58s-1.35.72-1.35 1.58c0 .85.48 1.57 1.35 1.57zm7.55-3.84h-.98l-1.35 4.65h-.03l-1.37-4.65h-1.06l2 6.39c-.11.42-.35.59-.73.59-.11 0-.33-.01-.42-.02v.88c.11.02.41.04.56.04.95 0 1.4-.4 1.74-1.49l2.14-6.39h-.5z"/>
+                  <text x="31" y="14" className="text-[9px] font-semibold" fill="currentColor">Pay</text>
+                </svg>
+              </div>
+
+              {/* Google Pay */}
+              <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center h-12 w-20 hover:shadow-lg transition-shadow">
+                <svg viewBox="0 0 61 25" className="h-6 w-auto">
+                  <path d="M27.2 11.1v5.5h-1.7v-13h4.5c1.1 0 2.1.4 2.8 1.1.8.7 1.2 1.7 1.2 2.7 0 1.1-.4 2-.1.2 2.8-.7.7-1.7 1.1-2.8 1.1h-4.5zm0-4.8v3.3h2.9c.7 0 1.3-.2 1.8-.7.5-.4.7-1 .7-1.7 0-.6-.2-1.2-.7-1.6-.5-.4-1.1-.7-1.8-.7l-2.9.4zm11.3-1.1c1.1 0 2.1.3 2.9.9l-.8 1.3c-.7-.5-1.4-.7-2.2-.7-.5 0-.9.1-1.2.3-.3.2-.4.5-.4.9 0 .5.4.8 1.2 1.1l1.5.5c.9.3 1.6.7 2 1.1.4.5.6 1.1.6 1.8 0 1-.4 1.8-1.1 2.4-.8.6-1.7.9-2.8.9-1.3 0-2.4-.3-3.2-1l.8-1.3c.7.6 1.6.9 2.6.9.6 0 1-.1 1.4-.4.3-.3.5-.6.5-1.1 0-.5-.4-.9-1.2-1.2l-1.5-.5c-.9-.3-1.5-.6-1.9-1-.4-.4-.6-1-.6-1.7 0-.9.3-1.7 1-2.3.7-.5 1.6-.8 2.6-.8l-.2.9z" fill="#3C4043"/>
+                  <path d="M49.8 7.9c1.2 0 2.1.3 2.9 1 .7.7 1.1 1.6 1.1 2.8v4.9h-1.6v-1.1h-.1c-.7.9-1.5 1.3-2.6 1.3-1 0-1.8-.3-2.4-.8s-.9-1.2-.9-2c0-.9.3-1.6 1-2.1.7-.5 1.5-.8 2.6-.8.9 0 1.7.2 2.3.5v-.4c0-.6-.2-1.1-.7-1.5-.4-.4-1-.6-1.6-.6-.9 0-1.6.4-2.2 1.1l-1.5-.9c.9-1.1 2-1.7 3.5-1.7l.2.3zm-2.2 5.5c0 .4.2.8.5 1.1.4.3.8.4 1.3.4.7 0 1.3-.3 1.8-.8.5-.5.8-1.1.8-1.7-.5-.4-1.2-.6-2-.6-.6 0-1.2.2-1.6.5-.4.3-.6.7-.6 1.2l-.2-.1zm11.8-8.3h1.7l-5.3 13.5h-1.7l2-4.3-3.5-9.2h1.8l2.5 7.1h.1l2.4-7.1z" fill="#3C4043"/>
+                  <path d="M17.4 9.8c0-.5 0-.9-.1-1.4H9v2.6h4.7c-.2 1.1-.8 2-1.7 2.6v2.2h2.7c1.6-1.5 2.5-3.7 2.5-6.3l.2.3z" fill="#4285F4"/>
+                  <path d="M9 17.8c2.3 0 4.2-.8 5.6-2.1l-2.7-2.2c-.8.5-1.7.8-2.9.8-2.2 0-4.1-1.5-4.8-3.5H1.4v2.3c1.4 2.8 4.3 4.7 7.6 4.7z" fill="#34A853"/>
+                  <path d="M4.2 10.8c-.4-1.1-.4-2.3 0-3.4V5.1H1.4c-1.2 2.4-1.2 5.2 0 7.6l2.8-1.9z" fill="#FBBC04"/>
+                  <path d="M9 4.4c1.3 0 2.4.4 3.3 1.3l2.5-2.5C13.2 1.7 11.3.9 9 .9 5.7.9 2.8 2.8 1.4 5.6l2.8 2.2c.7-2 2.6-3.5 4.8-3.5z" fill="#EA4335"/>
+                </svg>
+              </div>
+            </div>
+          </div>
 
           <div className="border-t border-gray-800 pt-8 mt-8 text-center text-sm font-light">
             <p>&copy; 2026 Clínica Dentária Predileta. Todos os direitos reservados.</p>
