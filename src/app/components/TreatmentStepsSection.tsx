@@ -67,7 +67,7 @@ export default function TreatmentStepsSection() {
   }, [scrollYProgress]);
 
   return (
-    <section ref={containerRef} className="relative bg-white py-24 md:py-32">
+    <section ref={containerRef} className="relative bg-white py-24 md:py-32" style={{ position: 'relative' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Coluna Esquerda - Timeline Fixa */}

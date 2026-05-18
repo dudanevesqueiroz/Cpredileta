@@ -185,7 +185,7 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16 md:pt-20">
+      <section ref={heroRef} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16 md:pt-20" style={{ position: 'relative' }}>
         {/* Background Image with Overlay and Parallax */}
         <motion.div
           className="absolute inset-0"
