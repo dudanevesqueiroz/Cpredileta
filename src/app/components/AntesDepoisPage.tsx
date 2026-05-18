@@ -11,7 +11,6 @@ import implanteAntes from "../../imports/Captura_de_ecrã_2026-04-14_145447.png"
 import implanteDepois from "../../imports/Captura_de_ecrã_2026-04-14_145457.png";
 import reabilitacaoAntes from "../../imports/Captura_de_ecrã_2026-04-14_145957.png";
 import reabilitacaoDepois from "../../imports/Captura_de_ecrã_2026-04-14_150005.png";
-import facetasAntes2 from "../../imports/antes_2.jpeg";
 import facetasDepois2 from "../../imports/depois_2_.jpeg";
 import facetasAntes3 from "../../imports/antes_3.jpeg";
 import facetasDepois3 from "../../imports/depois_3.jpeg";
@@ -76,7 +75,7 @@ export default function AntesDepoisPage() {
     {
       id: 6,
       tratamento: "Facetas de Porcelana",
-      imageBefore: facetasAntes2,
+      imageBefore: "https://images.unsplash.com/photo-1691200623807-d0d0e69e7b8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxuYXR1cmFsJTIwc21pbGUlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzYwOTg1NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       imageAfter: facetasDepois2,
       nome: "Mariana S.",
       idade: 29,
