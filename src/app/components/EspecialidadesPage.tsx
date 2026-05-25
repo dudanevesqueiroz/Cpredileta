@@ -148,15 +148,24 @@ export default function EspecialidadesPage() {
       <section className="section-padding bg-white">
         <div className="max-w-responsive">
           <div className="space-y-32">
-            {especialidades.map((esp, index) => (
-              <motion.div
-                key={index}
-                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 md:gap-12 items-center`}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
+            {especialidades.map((esp, index) => {
+              // Gerar ID baseado no título para navegação
+              const sectionId = esp.title.toLowerCase()
+                .normalize("NFD").replace(/[̀-ͯ]/g, "") // Remove acentos
+                .replace(/[^a-z0-9\s]/g, '') // Remove caracteres especiais
+                .split(' ').slice(0, 2).join('-'); // Pega primeiras 2 palavras
+
+              return (
+                <motion.div
+                  key={index}
+                  id={sectionId}
+                  className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 md:gap-12 items-center scroll-mt-24`}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+
                 {/* Image */}
                 <div className="flex-1">
                   <div className="rounded-3xl overflow-hidden shadow-2xl">
@@ -199,7 +208,8 @@ export default function EspecialidadesPage() {
                   </Link>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

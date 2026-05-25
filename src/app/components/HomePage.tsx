@@ -54,53 +54,59 @@ export default function HomePage() {
     }, 5000);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Enviar email para 14259@ipam.pt via Formspree
-      const formspreeEndpoint = "https://formspree.io/f/xbdqggoa";
+      // Construir assunto: "Data Pretendida Serviço Pretendido - Primeiro Nome Último Nome"
+      const dataPretendida = formData.date || "Data não especificada";
+      const servicoPretendido = formData.service || "Serviço não especificado";
+      const nomeCompleto = `${formData.firstName} ${formData.lastName}`;
 
-      const payload = {
-        nome: `${formData.firstName} ${formData.lastName}`,
-        email: formData.email,
-        telefone: formData.phone,
-        servico: formData.service || "Não especificado",
-        data: formData.date || "Não especificada",
-        mensagem: formData.message || "Sem mensagem adicional",
-        _subject: "Novo agendamento de consulta - Clínica Predileta",
-        _replyto: formData.email,
-        _cc: "14259@ipam.pt"
-      };
+      const subject = `${dataPretendida} ${servicoPretendido} - ${nomeCompleto}`;
 
-      const response = await fetch(formspreeEndpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      // Construir corpo do email
+      const body = `
+Pedido de Agendamento de Consulta - Clínica Predileta
 
-      if (!response.ok) {
-        throw new Error("Erro ao enviar formulário");
-      }
+Nome: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Telefone: ${formData.phone}
+Serviço Pretendido: ${formData.service || "Não especificado"}
+Data Pretendida: ${formData.date || "Não especificada"}
 
-      showToast("success", "Pedido enviado com sucesso! Entraremos em contacto brevemente.");
-      
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        service: "",
-        date: "",
-        message: ""
-      });
+Mensagem:
+${formData.message || "Sem mensagem adicional"}
+
+---
+Enviado através do formulário web da Clínica Predileta
+      `.trim();
+
+      // Criar mailto link
+      const mailtoLink = `mailto:14216@ipam.pt?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Abrir cliente de email
+      window.location.href = mailtoLink;
+
+      showToast("success", "A abrir o seu cliente de email...");
+
+      // Limpar formulário após pequeno delay
+      setTimeout(() => {
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          service: "",
+          date: "",
+          message: ""
+        });
+        setIsSubmitting(false);
+      }, 1000);
     } catch (error) {
-      console.error("Erro ao enviar:", error);
-      showToast("error", "Erro ao enviar. Tente novamente ou contacte-nos diretamente.");
-    } finally {
+      console.error("Erro ao preparar email:", error);
+      showToast("error", "Erro ao abrir cliente de email. Tente novamente.");
       setIsSubmitting(false);
     }
   };
@@ -185,7 +191,7 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16 md:pt-20" style={{ position: 'relative' }}>
+      <section ref={heroRef} className="min-h-[100svh] flex items-center justify-center overflow-hidden pt-16 md:pt-20" style={{ position: 'relative' }}>
         {/* Background Image with Overlay and Parallax */}
         <motion.div
           className="absolute inset-0"
@@ -664,7 +670,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contactos" className="section-padding bg-gradient-to-br from-[#F8F9FA] to-[#E9ECEF]">
+      <section id="contactos" className="section-padding bg-gradient-to-br from-[#F8F9FA] to-[#E9ECEF] scroll-mt-20">
         <div className="max-w-responsive">
           {/* Header */}
           <motion.div
@@ -763,11 +769,12 @@ export default function HomePage() {
 
             {/* Formulário de Marcação */}
             <motion.div
+              id="marcar-consulta"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="lg:col-span-2"
+              className="lg:col-span-2 scroll-mt-24"
             >
               <div className="bg-white rounded-3xl shadow-lg p-8 md:p-10 border border-gray-100">
                 <h3 className="text-2xl font-light text-gray-800 mb-2">Agendar Consulta</h3>
